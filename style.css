@@ -1,0 +1,119 @@
+/********** Base Styles **********/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Optional: Sets a common font */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* 75% larger than default paragraph font size if default is 1em */
+}
+
+.row {
+    width: 100%;
+    /* Add padding to the row to create spacing from browser edges */
+    padding-left: 15px; 
+    padding-right: 15px;
+}
+
+.menu-item {
+    position: relative; /* For absolute positioning of the title */
+    border: 1px solid black;
+    background-color: #f2f2f2; /* Light grey base background */
+    margin-bottom: 20px; /* Vertical spacing between sections */
+    padding: 20px; /* Spacing for the text inside the box */
+    padding-top: 50px; /* Push text down to avoid overlapping title */
+}
+
+.item-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px; /* Fixed width for title box */
+    height: 40px; /* Fixed height for title box */
+    border: 1px solid black;
+    text-align: center;
+    line-height: 40px; /* Vertically center the text */
+    font-size: 1.25em; /* 25% larger than default paragraph font size */
+    color: white; /* Default text color for titles */
+}
+
+/* Specific background colors for each title */
+.chicken {
+    background-color: #f7a8a8; /* Light red */
+}
+
+.beef {
+    background-color: #a8d9f7; /* Light blue */
+}
+
+.sushi {
+    background-color: #b3f7a8; /* Light green */
+}
+
+
+/********** Desktop View (992px and above) **********/
+@media (min-width: 992px) {
+    .col-lg-4 {
+        float: left;
+        width: 33.33%;
+    }
+    .col-lg-4:nth-child(2) { /* For horizontal spacing between sections */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    /* No padding-right on the first, no padding-left on the third to maintain overall row padding */
+    .col-lg-4:first-child .menu-item {
+        margin-right: 10px; /* Space from second item */
+    }
+    .col-lg-4:last-child .menu-item {
+        margin-left: 10px; /* Space from second item */
+    }
+}
+
+
+/********** Tablet View (768px to 991px) **********/
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        float: left;
+        width: 50%;
+    }
+    .col-md-12 {
+        float: left; /* Still float for clearing */
+        width: 100%;
+        clear: left; /* Ensure it starts on a new line */
+    }
+
+    /* Adjusting horizontal spacing for tablet view */
+    .col-md-6:first-child .menu-item {
+        margin-right: 10px;
+    }
+    .col-md-6:last-child .menu-item { /* This will be the Beef section */
+        margin-left: 10px;
+    }
+    .col-md-12 .menu-item { /* This will be the Sushi section */
+        margin-top: 20px; /* Add top margin for vertical spacing */
+    }
+    /* Reset margins for elements not impacted by specific media query rules */
+    .col-md-6:nth-child(1) .menu-item,
+    .col-md-6:nth-child(2) .menu-item {
+        margin-bottom: 20px; /* Ensure vertical spacing */
+    }
+}
+
+
+/********** Mobile View (767px and below) **********/
+@media (max-width: 767px) {
+    .col-sm-12 {
+        float: none; /* Remove floating */
+        width: 100%; /* Full width */
+    }
+    /* No specific horizontal margins needed as they take full width */
+}
